@@ -13,16 +13,16 @@ func ProcessPullRequest(payload []byte) int {
 		return 500
 	}
 
-	if eventPayload.Action == "closed" {
-		base := eventPayload.PullRequest.Base.Ref
-		branch := eventPayload.PullRequest.Head.Ref
-		user := eventPayload.PullRequest.User.Login
-		pRID := eventPayload.PullRequest.ID
+	// if eventPayload.Action == "closed" {
+	// 	base := eventPayload.PullRequest.Base.Ref
+	// 	branch := eventPayload.PullRequest.Head.Ref
+	// 	user := eventPayload.PullRequest.User.Login
+	// 	pRID := eventPayload.PullRequest.ID
 
-		log.Printf("Pull Request Recibido:\nID:%d\nBase:%s\nHead:%s\nUser:%s", pRID, base, branch, user)
-	} else {
-		log.Printf("Pull Request Action no es Closed: %s", eventPayload.Action)
-	}
+	// 	log.Printf("Pull Request Recibido:\nID:%d\nBase:%s\nHead:%s\nUser:%s", pRID, base, branch, user)
+	// } else {
+	// 	log.Printf("Pull Request Action no es Closed: %s", eventPayload.Action)
+	// }
 
 	if eventPayload.Action == "ready_for_review" {
 		base := eventPayload.PullRequest.Base.Ref
